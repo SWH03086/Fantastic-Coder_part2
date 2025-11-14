@@ -88,10 +88,10 @@ label.open-btn {
 
 <!-- Sidebar -->
 <div class="sidebar">
-  <a href="#">Home</a>
-  <a href="#">About</a>
-  <a href="#">Services</a>
-  <a href="#">Contact</a>
+  <a href="login.php">Login</a>
+  <a href="signup.php">Sign up</a>
+
+  <a href="logout.php">Log out</a>
 </div>
 
 <!-- Overlay to close sidebar -->

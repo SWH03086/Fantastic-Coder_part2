@@ -1,7 +1,7 @@
 <?php
 
 require_once("settings.php");
-$_SESSION['username'] = $user['username'];
+
 if (isset($_POST['username']) && isset($_POST['password'])) {
     $username = trim($_POST['username']);
     $password = trim($_POST['password']);
@@ -11,7 +11,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 
     if (mysqli_num_rows($result) == 1) {
         $_SESSION['username'] = $username;
-        header("Location: project1/index.php");
+        header("Location: index.php");
         exit;
     }
         else{

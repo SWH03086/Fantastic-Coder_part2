@@ -6,12 +6,6 @@ require_once("settings.php"); // Must define: $host, $user, $pwd, $sql_db
 // Enable error reporting for debugging (remove in production)
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
-// CSRF Token
-if (empty($_SESSION['csrf_token'])) {
-    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
-}
-$csrf_token = $_SESSION['csrf_token'];
-
 // Connect to DB
 try {
     $conn = new mysqli($host, $user, $pwd, $sql_db);
@@ -19,7 +13,10 @@ try {
 } catch (Exception $e) {
     die("Database connection failed: " . $e->getMessage());
 }
-
+if (!isset($_SESSION['manager'])) {
+    header("Location: login.php");
+    exit;
+}
 $message = "";
 $result = null; // Will hold query result
 

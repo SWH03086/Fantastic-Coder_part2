@@ -2,7 +2,7 @@
 <header class="site-header" role="banner">
     <div class="header-top">
         <!-- Clickable Logo -->
-        <a href="../index.php" class="logo-link">
+        <a href="index.php" class="logo-link">
             <img src="images/W_Corp._Logo.png" alt="W Corp Logo - Home" class="logo">
         </a>
 
@@ -24,18 +24,20 @@
            class="<?php echo $current_page === 'index.php' ? 'active' : ''; ?>">
             Home
         </a>
-        <a href="about.php" 
-           class="<?php echo $current_page === 'about.php' ? 'active' : ''; ?>">
-            About Us
+        <a href="jobs.php" 
+           class="<?php echo $current_page === 'jobs.php' ? 'active' : ''; ?>">
+            Jobs
         </a>
         <a href="apply.php" 
            class="<?php echo $current_page === 'apply.php' ? 'active' : ''; ?>">
             Apply
         </a>
-        <a href="jobs.php" 
-           class="<?php echo $current_page === 'jobs.php' ? 'active' : ''; ?>">
-            Jobs
+        <a href="about.php" 
+           class="<?php echo $current_page === 'about.php' ? 'active' : ''; ?>">
+            About Us
         </a>
+        
+        
     </nav>
 
     <hr class="header-divider">

@@ -1,11 +1,11 @@
 /* ===== ROOT VARIABLES ===== */
 :root {
     --color-bg: #000;
-    --color-text: #e0f7fa;     /* azure */
-    --color-primary: #00bcd4;
-    --color-accent: #4fc3f7;
-    --color-border: #e0f7fa;
-    --color-hover: #e0f7fa;
+    --color-text: azure;     /* azure */
+    --color-primary: cyan;
+    --color-accent: beige;
+    --color-border: rgb(8, 103, 244);
+    --color-hover: azure;
     --color-hover-text: #000;
     --font-main: "OCR A Extended", monospace;
     --font-heading: "Bookman Old Style", serif;

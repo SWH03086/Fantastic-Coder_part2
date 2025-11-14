@@ -8,16 +8,10 @@ if (!isset($_SESSION['manager'])) {
     exit;
 }
 $message = "";
-$result = null; // Will hold query result
-
-// === HELPER: Validate CSRF ===
-function validate_csrf() {
-    global $csrf_token;
-    return isset($_POST['csrf_token']) && hash_equals($csrf_token, $_POST['csrf_token']);
-}
+$result = null; 
 
 // === HANDLE FORM SUBMISSIONS ===
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && validate_csrf()) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // 1. List All EOIs
     if (isset($_POST['list_all'])) {

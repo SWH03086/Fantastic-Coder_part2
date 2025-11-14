@@ -1,9 +1,5 @@
 <?php
-/* -------------------------------------------------------------
-   process_eoi.php
-   Handles the EOI form submission – secure, validated, DB-ready
-   ------------------------------------------------------------- */
-session_start();
+
 require_once("settings.php");               // $host,$user,$pwd,$sql_db → $conn
 
 /* ---------- 1. CSRF protection ---------- */
@@ -13,14 +9,6 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     header("Location: pages/apply.php");
     exit;
 }
-
-/* ---------- 3. Connect (object-oriented) ---------- */
-$conn = new mysqli($host, $user, $pwd, $sql_db);
-if ($conn->connect_error) {
-    error_log("DB connect error: " . $conn->connect_error);
-    die("Service unavailable.");
-}
-$conn->set_charset('utf8mb4');
 
 /* ---------- 4. Helper: safe output ---------- */
 function esc($str) {
@@ -102,7 +90,7 @@ $postcodeRanges = [
 ];
 
 $valid = false;
-foreach ($postcode_ranges[$state] ?? [] as $range) {
+foreach ($postcodeRanges[$state] ?? [] as $range) {
     if ($postcode >= $range[0] && $postcode <= $range[1]) {
         $valid = true; break;
     }
@@ -124,6 +112,8 @@ if ($skills_str === '' && $other_skills === '') {
 }
 
 /* ---------- 7. If errors → show them ---------- */
+
+/*fix this html inside echo*/
 if ($errors) {
     echo "<!DOCTYPE html><html lang='en'><head><meta charset='UTF-8'>
           <title>Errors</title><link rel='stylesheet' href='style/styles.css'></head><body>
@@ -183,6 +173,8 @@ if ($stmt->execute()) {
     $conn->close();
 
     /* ---------- 10. Success page ---------- */
+
+    /*fix this html inside echo*/
     echo "<!DOCTYPE html><html lang='en'><head><meta charset='UTF-8'>
           <title>Success</title><link rel='stylesheet' href='style/styles.css'></head><body>
           <div style='max-width:600px;margin:2rem auto;padding:2rem;background:#e8f5e9;

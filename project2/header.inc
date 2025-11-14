@@ -20,7 +20,7 @@
         $current_page = basename($_SERVER['PHP_SELF']);
         ?>
 
-        <a href="../index.php" 
+        <a href="index.php" 
            class="<?php echo $current_page === 'index.php' ? 'active' : ''; ?>">
             Home
         </a>

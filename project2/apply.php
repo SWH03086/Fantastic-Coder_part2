@@ -22,7 +22,8 @@
                 All fields marked with an asterisk (<span class="required">*</span>) are required.
             </p>
 
-            <form method="post" action="../process_eoi.php" novalidate>
+            <form method="post" action="process_eoi.php" novalidate>
+            <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
 
                 <!-- ===== Position Information ===== -->
                 <fieldset>

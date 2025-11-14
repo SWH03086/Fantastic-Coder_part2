@@ -7,12 +7,6 @@ session_start();
 require_once("settings.php");               // $host,$user,$pwd,$sql_db → $conn
 
 /* ---------- 1. CSRF protection ---------- */
-if (empty($_SESSION['csrf_token'])) {
-    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
-}
-if (!isset($_POST['csrf_token']) || !hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])) {
-    die("<h2>Security error</h2><p>Invalid request.</p>");
-}
 
 /* ---------- 2. Only accept POST ---------- */
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -95,16 +89,18 @@ if (!preg_match('/^\d{4}$/', $postcode)) {
 }
 
 /* Postcode ↔ State match (AU rules) */
-$postcode_ranges = [
+
+$postcodeRanges = [
     'VIC' => [[3000,3999],[8000,8999]],
     'NSW' => [[1000,1999],[2000,2999],[2600,2619]],
     'QLD' => [[4000,4999],[9000,9999]],
     'WA'  => [[6000,6999]],
     'SA'  => [[5000,5999]],
     'TAS' => [[7000,7999]],
-    'NT'  => [[0800,0999]],
-    'ACT' => [[0200,0299],[2600,2899]]
+    'NT'  => [['0800','0999']],
+    'ACT' => [['0200','0299'],['2600','2899']]
 ];
+
 $valid = false;
 foreach ($postcode_ranges[$state] ?? [] as $range) {
     if ($postcode >= $range[0] && $postcode <= $range[1]) {
@@ -135,7 +131,7 @@ if ($errors) {
                       border:1px solid #f44336;border-radius:12px;'>
           <h2>Application failed</h2><ul style='color:#c62828;'>";
     foreach ($errors as $e) echo "<li>$e</li>";
-    echo "</ul><p><a href='pages/apply.php' style='color:#1976d2;'>← Back</a></p></div></body></html>";
+    echo "</ul><p><a href='apply.php' style='color:#1976d2;'>← Back</a></p></div></body></html>";
     exit;
 }
 

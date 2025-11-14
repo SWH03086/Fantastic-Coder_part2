@@ -125,18 +125,20 @@ label.open-btn {
            class="<?php echo $current_page === 'index.php' ? 'active' : ''; ?>">
             Home
         </a>
-        <a href="about.php" 
-           class="<?php echo $current_page === 'about.php' ? 'active' : ''; ?>">
-            About Us
+        <a href="jobs.php" 
+           class="<?php echo $current_page === 'jobs.php' ? 'active' : ''; ?>">
+            Jobs
         </a>
         <a href="apply.php" 
            class="<?php echo $current_page === 'apply.php' ? 'active' : ''; ?>">
             Apply
         </a>
-        <a href="jobs.php" 
-           class="<?php echo $current_page === 'jobs.php' ? 'active' : ''; ?>">
-            Jobs
+        <a href="about.php" 
+           class="<?php echo $current_page === 'about.php' ? 'active' : ''; ?>">
+            About Us
         </a>
+        
+        
     </nav>
 
     <hr class="header-divider">

@@ -1,18 +1,8 @@
 <?php
 // === SECURITY & SETUP ===
 session_start();
-require_once("settings.php"); // Must define: $host, $user, $pwd, $sql_db
+require_once("settings.php"); 
 
-// Enable error reporting for debugging (remove in production)
-mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-
-// Connect to DB
-try {
-    $conn = new mysqli($host, $user, $pwd, $sql_db);
-    $conn->set_charset("utf8mb4");
-} catch (Exception $e) {
-    die("Database connection failed: " . $e->getMessage());
-}
 if (!isset($_SESSION['manager'])) {
     header("Location: login.php");
     exit;

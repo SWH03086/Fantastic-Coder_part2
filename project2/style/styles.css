@@ -56,7 +56,6 @@ h3 { font-size: 1.5rem; }
     margin: 2rem auto;
     padding: 0 1rem;
     display: grid;
-    grid-template-columns: 1fr 300px;
     gap: 2rem;
     flex: 1;
 }
@@ -564,4 +563,25 @@ main table.at td.abouttable:hover {
     background-color: #f0ffff;
     color: black;
     box-shadow: 0 0 10px var(--color-accent);
+}
+.login_container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    display: grid;
+    gap: 2rem;
+    flex: 1;
+}
+hr {
+  border: none; /* Removes the default border */
+  height: 2px; /* Sets the thickness of the line */
+  background-color: rgb(8, 103, 244); /* Sets the color of the line */
+}
+.login-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    display: grid;
+    gap: 2rem;
+    flex: 1;
 }

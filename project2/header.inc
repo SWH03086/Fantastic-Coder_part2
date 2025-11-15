@@ -141,5 +141,5 @@ label.open-btn {
         
     </nav>
 
-    <hr class="header-divider">
+  
 </header>

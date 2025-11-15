@@ -1,4 +1,4 @@
-/*need css*/
+
 <?php
 
 require_once("settings.php");
@@ -44,18 +44,25 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="stylesheet" href="style/styles.css">
 </head>
 <body>
-  
-
+    <div class="login-container">
+        <main class="form-main">
+        <h1>Login</h1>
     <form method="post" action="login.php">
+        <div class="form-group">
     <label for="username">Username:</label>
-    <input type="text" name="username" required><br>
+    <input type="text" name="username" required><br><br>
     <label for="password">Password:</label>
-    <input type="password" name="password" required><br>
-    <input type="submit" value="Login">
+    <input type="password" name="password" required><br><br><hr><br>
+    <input type="submit" value="Login" class="btn-submit">
+        </div>
 </form>
-<p>Don't have an account? <a href="signup.php">Sign up here</a>.</p>
+<hr><br>
+<p>Don't have an account? <a href="signup.php" class="btn-submit">Sign up here</a>.</p>
+        </main> 
+</div>
 </body>
 
 </html>

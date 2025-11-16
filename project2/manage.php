@@ -1,6 +1,5 @@
 <?php
-// === SECURITY & SETUP ===
-session_start();
+
 require_once("settings.php"); 
 
 if (!isset($_SESSION['manager'])) {
@@ -98,6 +97,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $message = "Invalid EOI number or status.";
         }
     }
+    
+    if (isset($_POST['sort'])) {
+    $field = $_POST['sort_field'];
+    $allowed = ["EOInumber", "job_ref", "first_name", "last_name", "dob", "status"];
+
+    if (in_array($field, $allowed)) {
+        $query = "SELECT * FROM eoi ORDER BY $field";
+        $result = $conn->query($query);
+    }
+}
+
 }
 ?>
 
@@ -124,7 +134,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         table { width: 100%; border-collapse: collapse; margin-top: 1rem; font-size: 0.95rem; }
         th, td { padding: 0.75rem; border: 1px solid #ddd; text-align: left; }
         th { background: #0d47a1; color: white; }
-        tr:nth-child(even) { background: #f9f9f9; }
+        tr:nth-child(even) { background: #f9f9f9; color: #000 }
+        tr:nth-child(odd) td {color: #fff;}
         .skills-list { white-space: pre-wrap; }
         @media (max-width: 768px) { table { font-size: 0.85rem; } }
     </style>
@@ -157,7 +168,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <form method="post">
                     <input type="hidden" name="csrf_token" value="<?= $csrf_token ?>">
                     <div class="form-row">
-                        <label for="job_ref">Job Ref:</label>
+                        <label for="job_ref">Job reference:</label>
                         <input type="text" id="job_ref" name="job_ref" placeholder="e.g. IT5T1" required>
                     </div>
                     <button type="submit" name="list_by_job">Search</button>
@@ -215,7 +226,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </form>
             </div>
         </div>
+<form method="post">
 
+    <label for="sort_field">Sort by:</label>
+    <select name="sort_field">
+        <option value="EOInumber">EOI Number</option>
+        <option value="job_ref">Job Reference</option>
+        <option value="first_name">First Name</option>
+        <option value="last_name">Last Name</option>
+        <option value="dob">DOB</option>
+        <option value="status">Status</option>
+    </select>
+
+    <button type="submit" name="sort">Sort</button>
+</form>
+<br><br>
         <!-- Results Table -->
         <?php if ($result && $result->num_rows > 0): ?>
             <h2>EOI Results (<?= $result->num_rows ?> found)</h2>

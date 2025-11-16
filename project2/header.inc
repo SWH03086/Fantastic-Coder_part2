@@ -90,7 +90,7 @@ label.open-btn {
 <div class="sidebar">
   <a href="login.php">Login</a>
   <a href="signup.php">Sign up</a>
-
+<a href="manage.php">Manage</a>
   <a href="logout.php">Log out</a>
 </div>
 

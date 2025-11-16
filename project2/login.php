@@ -3,26 +3,50 @@
 
 require_once("settings.php");
 
-if (isset($_POST['username']) && isset($_POST['password'])) {
+
+
+
+$lockout_duration = 5; 
+
+if (!isset($_SESSION['login_attempts'])) {
+    $_SESSION['login_attempts'] = 0;
+}
+if (!isset($_SESSION['lockout_time'])) {
+    $_SESSION['lockout_time'] = 0;
+}
+
+if ($_SESSION['lockout_time'] > 0 && time() > $_SESSION['lockout_time']) {
+    $_SESSION['login_attempts'] = 0;   
+    $_SESSION['lockout_time'] = 0;     
+}
+
+if ($_SESSION['lockout_time'] > 0 && time() < $_SESSION['lockout_time']) {
+    $remaining = $_SESSION['lockout_time'] - time();
+    die("Too many failed attempts. Please wait $remaining seconds before trying again.");
+}
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    $login_success = false;
     $username = trim($_POST['username']);
     $password = trim($_POST['password']);
-    $_SESSION['manager'] = $username;
 
-    $query = "SELECT * FROM manager WHERE username = '$username' AND password = '$password'";
+    $query = "SELECT * FROM manager WHERE username = '$username'";
     $result = mysqli_query($conn, $query);
 
     if (mysqli_num_rows($result) == 1) {
-        $_SESSION['username'] = $username;
+        $row = mysqli_fetch_assoc($result);
+        $hashed = $row['password']; 
+
+
+        if (password_verify($password, $hashed)) {  
+        $login_success = true; 
+        $_SESSION['manager'] = $username;
         header("Location: manage.php");
         exit;
     }
-        else{
-        echo "Incorrect username or password.";}
-        }
+}
+     
 
-if (isset($_POST['username']) && isset($_POST['password'])) {
-    $username = trim($_POST['username']);
-    $password = trim($_POST['password']);
 
     $query = "SELECT * FROM user WHERE username = '$username' AND password = '$password'";
     $result = mysqli_query($conn, $query);
@@ -30,11 +54,31 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     if (mysqli_num_rows($result) == 1) {
         $_SESSION['username'] = $username;
         header("Location: index.php");
+        $login_success = true; 
+        $_SESSION['login_attempts'] = 0;
+        $_SESSION['lockout_time'] = 0;
+
         exit;
     }
-        else{
-        echo "Incorrect username or password.";}
+    
+        
+if (!$login_success) {
+    $_SESSION['login_attempts']++;
+
+    if ($_SESSION['login_attempts'] >= 3) {
+        if ($_SESSION['lockout_time'] == 0) {
+            $_SESSION['lockout_time'] = time() + $lockout_duration;
+        }
+        die("Too many failed attempts. Please wait $lockout_duration seconds before trying again.");
+    } else {
+        echo "Incorrect username or password. Attempt {$_SESSION['login_attempts']} of 3.";
     }
+} else {
+    // Successful login → reset attempts
+    $_SESSION['login_attempts'] = 0;
+    $_SESSION['lockout_time'] = 0;
+}
+}
 
 
 ?>
@@ -47,6 +91,8 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     <link rel="stylesheet" href="style/styles.css">
 </head>
 <body>
+
+
     <div class="login-container">
         <main class="form-main">
         <h1>Login</h1>
@@ -57,10 +103,12 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     <label for="password">Password:</label>
     <input type="password" name="password" required><br><br><hr><br>
     <input type="submit" value="Login" class="btn-submit">
+
         </div>
 </form>
 <hr><br>
-<p>Don't have an account? <a href="signup.php" class="btn-submit">Sign up here</a>.</p>
+<p>Don't have an account? <a href="signup.php" class="btn-submit">Sign up here</a>.</p><br>
+<p>You are the new manager? <a href="enhancements.php" class="btn-submit">Sign up here</a>.</p>
         </main> 
 </div>
 </body>

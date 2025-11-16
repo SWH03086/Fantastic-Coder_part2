@@ -12,6 +12,7 @@
 
 <!--Main part of the webpage-->
 <body>
+    <div class="scroll-detector"></div>
  <?php include 'header.inc'; ?> 
 <main>
     <h2>Fantastic coders</h2>
@@ -107,7 +108,6 @@
         </table>
 </main>
 <?php include 'footer.inc'; ?>
-
 
 </body>
 </html>

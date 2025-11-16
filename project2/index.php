@@ -10,6 +10,7 @@
 </head>
 
 <body>
+    <div class="scroll-detector"></div>
     <?php include 'header.inc'; ?>
 
     <main class="site-main">

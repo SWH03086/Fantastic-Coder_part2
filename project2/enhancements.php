@@ -82,7 +82,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <input type="text" name="username" required><br><br>
 
                     <label for="password">Password:</label>
-                    <input type="password" name="password" required><br><br>
+
+                    <input type="password" name="password" required>
+                    <p>Password must be at least 8 characters, include 1 uppercase letter, 1 number, and 1 special character (!@#$%^&*).</p>
 
                     <label for="confirm_password">Confirm Password:</label>
                     <input type="password" name="confirm_password" required><br><br>

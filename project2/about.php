@@ -63,11 +63,11 @@
         <legend>Each members contribution to this website</legend>
     <dl>
         <dt>Pham Tran Gia Bao</dt>
-        <dd>Position Descriptions and job application pages</dd>
+        <dd>Position Descriptions & Job application pages</dd>
         <dt>Nguyen The Hai</dt>
-        <dd>About our group page</dd>
+        <dd>About our group page & CSS design</dd>
         <dt>Mykhaylyk Danylo The Anh</dt>
-        <dd>Home page</dd>
+        <dd>Home page & CSS deisgn</dd>
     </dl>
     <figure>
         <img src="images/groupphoto.png" class="aboutimg">

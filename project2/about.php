@@ -63,14 +63,11 @@
         <legend>Each members contribution to this website</legend>
     <dl>
         <dt>Pham Tran Gia Bao</dt>
-        <dd>Position Descriptions & Job application pages</dd>
-        <dd>contribution for part2</dd>
+        <dd>Position Descriptions & Job application pages; PHP editing; login & logout pages</dd>
         <dt>Nguyen The Hai</dt>
-        <dd>About our group page & CSS design</dd>
-        <dd>contribution for part2</dd>
+        <dd>Designed the "About us" page on the web; CSS design; PHP coding; MySQL database; Signup page creation</dd>
         <dt>Mykhaylyk Danylo The Anh</dt>
-        <dd>Home page & CSS deisgn</dd>
-        <dd>contribution for part2</dd>
+        <dd>Designed the Homepage of the web; CSS design; Managing workflow & assissting the team</dd>
     </dl>
     <figure>
         <img src="images/groupphoto.png" class="aboutimg">
@@ -83,7 +80,7 @@
     <table class="at">
         <thead>
             <tr>
-                <th colspan="3" class="abouttable">Members Interests</th>
+                <th colspan="3" class="abouttable">Member's Interests</th>
         </tr>
         </thead>
         <tbody>
@@ -99,13 +96,13 @@
             <td class="abouttable">Playing video games</td>
         </tr>
         <tr>
-            <td class="abouttable">Piano </td>
+            <td class="abouttable">Piano</td>
             <td class="abouttable">Listening to music</td>
-            <td class="abouttable">Drink coffee and tea</td>
+            <td class="abouttable">Drink coffee & tea</td>
         <tr>
-            <td class="abouttable">Reading japanese novels</td>
+            <td class="abouttable">Reading Japanese novels</td>
             <td class="abouttable">Eat</td>
-            <td class="abouttable">Sleep and eat</td>
+            <td class="abouttable">Sleep</td>
         </tr>
         </tbody>
         </table>

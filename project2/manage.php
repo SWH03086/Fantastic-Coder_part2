@@ -9,16 +9,14 @@ if (!isset($_SESSION['manager'])) {
 $message = "";
 $result = null; 
 
-// === HANDLE FORM SUBMISSIONS ===
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    // 1. List All EOIs
     if (isset($_POST['list_all'])) {
         $query = "SELECT * FROM eoi ORDER BY EOInumber DESC";
         $result = $conn->query($query);
     }
 
-    // 2. List by Job Ref
     elseif (isset($_POST['list_by_job'])) {
         $job_ref = trim($_POST['job_ref']);
         if ($job_ref) {
@@ -31,7 +29,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    // 3. List by Name
     elseif (isset($_POST['list_by_applicant'])) {
         $first_name = trim($_POST['first_name']);
         $last_name = trim($_POST['last_name']);
@@ -62,7 +59,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    // 4. Delete by Job Ref
     elseif (isset($_POST['delete_by_job'])) {
         $job_ref = trim($_POST['delete_job_ref']);
         if ($job_ref) {
@@ -79,7 +75,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    // 5. Change Status
     elseif (isset($_POST['change_status'])) {
         $eoi_number = intval($_POST['eoi_number']);
         $status = $_POST['status'];
@@ -298,3 +293,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 if (isset($stmt)) $stmt->close();
 $conn->close();
 ?>
+
+<!-- AI use in this file: 
+Prompts: help me find any errors and improve this code <my og code> 
+Output: the above php code (the above code is 50% AI, I done most of it but it look messy and not working as good as i expected. I cannot find the chat I ask AI to fix this so I'm very sorry for this inconvenience)
+AI is also used in this file to find errors (mostly typo errors) and suggest solutions to fix them, but the prompts and output are too long to be shown here, and the changes are minor.
+-->

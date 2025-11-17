@@ -117,4 +117,8 @@ if (!$login_success) {
 </html>
 
 
-/* AI use in this file: None */
+<!-- AI use in this file: 
+Prompts: help me fix this fail login attempts code it not working <my og code> 
+Output: the above code about fail login attempt(the above code is not 100% AI generated, I fixed some parts of it myself, but the main logic is from AI, and I cannot find the chat where I ask AI to fix this so I'm very sorry for this inconvenience)
+AI is also used in this file to find errors (mostly typo errors) and suggest solutions to fix them, but the prompts and output are too long to be shown here, and the changes are minor.
+-->

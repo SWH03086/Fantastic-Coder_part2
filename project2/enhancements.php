@@ -37,7 +37,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $errors[] = "Passwords do not match.";
     }
 
-    // If no errors, insert into DB
     if (empty($errors)) {
         $hashed = password_hash($password, PASSWORD_DEFAULT);
         $stmt = $conn->prepare("INSERT INTO manager (username, password) VALUES (?, ?)");
@@ -99,3 +98,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 </body>
 </html>
+/* AI use in this file:
+
+
+
+
+
+
+
+
+
+*/

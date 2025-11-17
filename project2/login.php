@@ -10,7 +10,7 @@ if (isset($_SESSION['manager']) && isset($_SESSION['username'])) {
     session_destroy();
 }
 
-$lockout_duration = 5; 
+$lockout_duration = 60; 
 
 if (!isset($_SESSION['login_attempts'])) {
     $_SESSION['login_attempts'] = 0;
@@ -117,3 +117,4 @@ if (!$login_success) {
 </html>
 
 
+/* AI use in this file: None */

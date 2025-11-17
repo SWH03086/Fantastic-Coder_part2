@@ -26,7 +26,15 @@ if ($_SESSION['lockout_time'] > 0 && time() > $_SESSION['lockout_time']) {
 
 if ($_SESSION['lockout_time'] > 0 && time() < $_SESSION['lockout_time']) {
     $remaining = $_SESSION['lockout_time'] - time();
-    die("Too many failed attempts. Please wait $remaining seconds before trying again.");
+    die("
+    <!DOCTYPE html>
+    <html>
+    <body style='background-color:#f2f2f2;font-family:Arial,sans-serif; text-align:center; padding-top:50px;font-size:70px;font-weight:bold;color:#333;'>
+        Too many failed attempts. <br>
+        Please wait <strong style='color: red'>$remaining</strong> seconds before trying again.
+    </body>
+    </html>
+    ");
 }
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 

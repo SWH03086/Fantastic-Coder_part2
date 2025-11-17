@@ -4,7 +4,11 @@
 require_once("settings.php");
 
 
-
+if (isset($_SESSION['manager']) && isset($_SESSION['username'])) {
+    unset($_SESSION['manager']);
+    unset($_SESSION['username']);
+    session_destroy();
+}
 
 $lockout_duration = 5; 
 

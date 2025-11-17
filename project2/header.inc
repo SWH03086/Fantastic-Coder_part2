@@ -26,9 +26,12 @@ body {
   height: 100%;
   background-color: #111;
   color: white;
-  padding-top: 60px;
+  padding-top: 90px;
   transition: right 0.5s;
-  z-index: 1001; /* above overlay */
+  z-index: 1001; 
+  border-left: 2px solid rgb(8, 103, 244);
+  display: flex;
+  flex-direction: column;   
 }
 
 /* Sidebar links */
@@ -53,7 +56,8 @@ label.open-btn {
   padding: 10px 15px;
   border-radius: 5px;
   cursor: pointer;
-  z-index: 1002; /* above everything */
+  z-index: 1002; 
+border: 2px solid rgb(8, 103, 244);
 }
 
 /* Slide sidebar in when checked */
@@ -68,10 +72,24 @@ label.open-btn {
   left: 0;
   width: 100%;
   height: 100%;
-  background: transparent; /* invisible but clickable */
-  display: none; /* hidden by default */
-  z-index: 1000; /* below sidebar */
+  background: transparent; 
+  display: none;
+  z-index: 1000; 
 }
+
+
+.bottom-fixed {
+  margin-top: auto;     
+  padding: 15px 20px;
+  background: #222;
+  text-align: center;
+  border-top: 2px solid rgb(8, 103, 244);
+}
+
+
+
+
+
 
 /* Show overlay when sidebar is open */
 #toggleSidebar:checked ~ .overlay {
@@ -91,8 +109,8 @@ label.open-btn {
 <div class="sidebar">
   <a href="login.php">Login</a>
   <a href="signup.php">Sign up</a>
-<a href="manage.php">Manage</a>
-  <a href="logout.php">Log out</a>
+  <a href="manage.php">Manage</a>
+  <a href="logout.php" class="bottom-fixed">Log out</a>
 </div>
 
 <!-- Overlay to close sidebar -->

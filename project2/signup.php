@@ -10,7 +10,7 @@ $query = "INSERT INTO user (username, password) VALUES ('$username', '$password'
 $result = mysqli_query($conn, $query);
 
 if ($result) {
-  echo "✅ Signup successful. You can now <a href='login.html'>login</a>.";
+  echo "✅ Signup successful. You can now <a href='login.php'>login</a>.";
 } else {
   echo "❌ Signup failed. Please try again.";
 }}  
@@ -28,7 +28,7 @@ if ($result) {
   <div class="login-container">
     <main class="form-main">
       <h1>Signup</h1>
-      <form method="post" action="login.php">
+      <form method="post" action="signup.php">
         <div class="form-group">
           <label for="username">Username:</label>
     <input type="text" name="username" required><br>

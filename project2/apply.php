@@ -8,7 +8,9 @@
     <meta name="keywords" content="job application, IT jobs, W Corp, careers">
     <link rel="stylesheet" href="style/styles.css">
 </head>
-
+<?php require_once("settings.php"); 
+$sql = "SELECT job_ref, title FROM job_list";
+$result = $conn->query($sql);?>
 <body>
     <div class="scroll-detector"></div>
     <?php include 'header.inc'; ?>
@@ -24,7 +26,7 @@
             </p>
 
             <form method="post" action="process_eoi.php" novalidate>
-            <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
+            
 
                 <!-- ===== Position Information ===== -->
                 <fieldset>
@@ -33,9 +35,13 @@
                         <label for="job-ref">Job Reference Number: <span class="required">*</span></label>
                         <select id="job-ref" name="job_ref" required aria-required="true">
                             <option value="">Please Select</option>
-                            <option value="IT5T1">IT5T1 - IT Support Technician</option>
-                            <option value="WD7F2">WD7F2 - Full Stack Web Developer</option>
-                            <option value="CS3A9">CS3A9 - Cybersecurity Analyst</option>
+                            <?php
+                            if ($result->num_rows > 0) {
+                                while ($row = $result->fetch_assoc()) {
+                                    echo "<option value='" . $row['job_ref'] . "'>" . $row['job_ref']."-".$row['title'] . "</option>";
+                                }
+                            }
+                            ?>
                         </select>
                     </div>
                 </fieldset>

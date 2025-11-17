@@ -36,8 +36,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (mysqli_num_rows($result) == 1) {
         $row = mysqli_fetch_assoc($result);
         $hashed = $row['password']; 
-
-
         if (password_verify($password, $hashed)) {  
         $login_success = true; 
         $_SESSION['manager'] = $username;

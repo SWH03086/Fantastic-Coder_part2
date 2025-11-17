@@ -63,9 +63,9 @@
         <legend>Each members contribution to this website</legend>
     <dl>
         <dt>Pham Tran Gia Bao</dt>
-        <dd>Position Descriptions & Job application pages; PHP editing; login & logout pages</dd>
+        <dd>Position Descriptions & Job application pages; CSS design; PHP editing; enhance jobs pages</dd>
         <dt>Nguyen The Hai</dt>
-        <dd>Designed the "About us" page on the web; CSS design; PHP coding; MySQL database; Signup page creation</dd>
+        <dd>Designed the "About us" page on the web; PHP coding; MySQL database; Signup, login, manage and enhancements page creation</dd>
         <dt>Mykhaylyk Danylo The Anh</dt>
         <dd>Designed the Homepage of the web; CSS design; Managing workflow & assissting the team</dd>
     </dl>

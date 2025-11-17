@@ -109,10 +109,11 @@ $result = mysqli_query($conn, $query);
             while ($row = mysqli_fetch_assoc($result)) {
                 echo "
                 <article class='job-position'>
-                    <header>
+                    <div>
                         <h2 itemprop='title'>{$row['title']}</h2>
                         <a href='apply.php?job_ref={$row['job_ref']}' class='btn-apply'>Apply Now</a>
-                    </header>
+                        <br>
+                    </div>
 
                     <dl class='job-details'>
                         <dt>Reference Number:</dt><dd itemprop='identifier'>{$row['job_ref']}</dd>

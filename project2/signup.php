@@ -1,4 +1,4 @@
-/*need css*/
+
 <?php
 require_once("settings.php");
 
@@ -22,18 +22,30 @@ if ($result) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="stylesheet" href="style/styles.css">
 </head>
 <body>
-  
-
-    <form method="post" action="login.php">
-    <label for="username">Username:</label>
+  <div class="login-container">
+    <main class="form-main">
+      <h1>Signup</h1>
+      <form method="post" action="login.php">
+        <div class="form-group">
+          <label for="username">Username:</label>
     <input type="text" name="username" required><br>
     <label for="password">Password:</label>
     <input type="password" name="password" required><br>
     <input type="hidden" name="token" value="abc123">
-    <input type="submit" value="Sign up">
-<p>Already have an account? <a href="login.php">Login here</a>.</p>
+    <input type="submit" value="Sign up" class="btn-submit">
+        </div>
+      </form>
+      <hr> <br>
+      <p>Already have an account? <a href="login.php" class="btn-submit">Login here</a>.</p>
+    </main>
+  </div>
+
+    
+    
+
 </body>
 
 </html>

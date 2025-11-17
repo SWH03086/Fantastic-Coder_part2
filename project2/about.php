@@ -64,10 +64,13 @@
     <dl>
         <dt>Pham Tran Gia Bao</dt>
         <dd>Position Descriptions & Job application pages</dd>
+        <dd>contribution for part2</dd>
         <dt>Nguyen The Hai</dt>
         <dd>About our group page & CSS design</dd>
+        <dd>contribution for part2</dd>
         <dt>Mykhaylyk Danylo The Anh</dt>
         <dd>Home page & CSS deisgn</dd>
+        <dd>contribution for part2</dd>
     </dl>
     <figure>
         <img src="images/groupphoto.png" class="aboutimg">

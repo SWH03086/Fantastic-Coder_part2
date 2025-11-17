@@ -76,7 +76,6 @@ if (!$login_success) {
         echo "Incorrect username or password. Attempt {$_SESSION['login_attempts']} of 3.";
     }
 } else {
-    // Successful login → reset attempts
     $_SESSION['login_attempts'] = 0;
     $_SESSION['lockout_time'] = 0;
 }

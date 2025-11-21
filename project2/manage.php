@@ -148,7 +148,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <?php endif; ?>
 
         <div class="form-grid">
-            <!-- List All -->
+            <!-- LISTS ALL EOIS -->
             <div class="form-card">
                 <h3>List All EOIs</h3>
                 <form method="post">
@@ -157,7 +157,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </form>
             </div>
 
-            <!-- List by Job -->
+            <!-- LIST BY JOBS -->
             <div class="form-card">
                 <h3>List by Job Reference</h3>
                 <form method="post">
@@ -170,7 +170,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </form>
             </div>
 
-            <!-- List by Name -->
+            <!-- LIST BY NAME -->
             <div class="form-card">
                 <h3>List by Applicant</h3>
                 <form method="post">
@@ -187,7 +187,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </form>
             </div>
 
-            <!-- Delete -->
+            <!-- DELETE -->
             <div class="form-card">
                 <h3>Delete by Job Ref</h3>
                 <form method="post" onsubmit="return confirm('Delete ALL EOIs for this job?');">
@@ -200,7 +200,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </form>
             </div>
 
-            <!-- Change Status -->
+            <!-- CHANGE STATUS -->
             <div class="form-card">
                 <h3>Update EOI Status</h3>
                 <form method="post">
@@ -236,7 +236,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <button type="submit" name="sort">Sort</button>
 </form>
 <br><br>
-        <!-- Results Table -->
+        <!-- RESULTS TABLE -->
         <?php if ($result && $result->num_rows > 0): ?>
             <h2>EOI Results (<?= $result->num_rows ?> found)</h2>
             <div style="overflow-x:auto;">

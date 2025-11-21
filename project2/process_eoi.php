@@ -34,10 +34,23 @@ $other_skills = esc($_POST['other_skills'] ?? '');
 $errors = [];
 
 /* Job reference (must be one of the three valid codes) */
-$valid_refs = ['IT5T1', 'WD7F2', 'CS3A9'];
+$job_ref = esc($_POST['job_ref'] ?? '');
+$valid_refs = [];
+
+$sql = "SELECT job_ref FROM job_list";
+$result = $conn->query($sql);
+
+if ($result && $result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $valid_refs[] = $row['job_ref'];
+    }
+}
+
+/* Validate job_ref */
 if (!in_array($job_ref, $valid_refs, true)) {
     $errors[] = "Invalid job reference.";
 }
+
 
 /* Names */
 if (!preg_match('/^[A-Za-z]{1,20}$/', $first_name)) {
@@ -183,7 +196,7 @@ if ($stmt->execute()) {
           <p>Thank you <strong>" . esc($first_name . ' ' . $last_name) . "</strong>.</p>
           <p><strong>EOI #</strong> $eoi_id</p>
           <p><strong>Status:</strong> <span style='color:#2e7d32;font-weight:600;'>New</span></p>
-          <p><a href='pages/apply.php' style='background:#1976d2;color:#fff;padding:.75rem 1.5rem;
+          <p><a href='apply.php' style='background:#1976d2;color:#fff;padding:.75rem 1.5rem;
                border-radius:6px;text-decoration:none;'>Apply again</a></p>
           </div></body></html>";
 } else {

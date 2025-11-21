@@ -32,7 +32,7 @@ $result = $conn->query($sql);?>
                     <div class="form-group">
                         <label for="job-ref">Job Reference Number: <span class="required">*</span></label>
                         <select id="job-ref" name="job_ref" required aria-required="true">
-                            <option value="">Please Select</option>
+                            <option value="job_re">Please Select</option>
                             <?php
                             if ($result->num_rows > 0) {
                                 while ($row = $result->fetch_assoc()) {

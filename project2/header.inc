@@ -1,4 +1,4 @@
-<!-- header.inc -->
+<!-- THIS IS THE HEADER.INC -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,12 +12,12 @@ body {
   margin: 0;
 }
 
-/* Hidden checkbox */
+/* THE HIDDEN CHECKBOX */
 #toggleSidebar {
   display: none;
 }
 
-/* Sidebar styling */
+/* STYLING FOR SIDEBAR */
 .sidebar {
   position: fixed;
   right: -250px;
@@ -34,7 +34,7 @@ body {
   flex-direction: column;   
 }
 
-/* Sidebar links */
+/* SIDEBAR LINKS */
 .sidebar a {
   display: block;
   padding: 15px 20px;
@@ -46,7 +46,7 @@ body {
   background-color: #575757;
 }
 
-/* Open button */
+/* OPEN BUTTON */
 label.open-btn {
   position: fixed;
   top: 20px;
@@ -65,7 +65,7 @@ border: 2px solid rgb(8, 103, 244);
   right: 0;
 }
 
-/* Full-screen overlay */
+/* FULL-SCREEN OVERLAY */
 .overlay {
   position: fixed;
   top: 0;
@@ -91,7 +91,7 @@ border: 2px solid rgb(8, 103, 244);
 
 
 
-/* Show overlay when sidebar is open */
+/* SHOW OVERLAY WHEN SIDEBAR IS OPENED */
 #toggleSidebar:checked ~ .overlay {
   display: block;
 }
@@ -99,13 +99,13 @@ border: 2px solid rgb(8, 103, 244);
 </head>
 <body>
 
-<!-- Checkbox to control sidebar -->
+<!-- CHECKBOX TO CONTROL SIDEBAR -->
 <input type="checkbox" id="toggleSidebar">
 
-<!-- Button to open sidebar -->
+<!-- BUTTON TO OPEN SIDEBAR -->
 <label for="toggleSidebar" class="open-btn">☰ Menu</label>
 
-<!-- Sidebar -->
+<!-- SIDEBAR -->
 <div class="sidebar">
   <a href="login.php">Login</a>
   <a href="signup.php">Sign up</a>
@@ -113,7 +113,7 @@ border: 2px solid rgb(8, 103, 244);
   <a href="logout.php" class="bottom-fixed">Log out</a>
 </div>
 
-<!-- Overlay to close sidebar -->
+<!-- OVERLAY TO CLOSE SIDEBAR -->
 <label for="toggleSidebar" class="overlay"></label>
 
 </body>
@@ -126,14 +126,14 @@ border: 2px solid rgb(8, 103, 244);
             <img src="images/W_Corp._Logo.png" alt="W Corp Logo - Home" class="logo">
         </a>
 
-        <!-- Header Text -->
+        <!-- HEADER TEXTS -->
         <div class="header-text">
             <h3>The official home page of Work Corporation!</h3>
             <h1>W Corp welcomes you!</h1>
         </div>
     </div>
 
-    <!-- Navigation -->
+    <!-- NAVIGATION -->
     <nav class="nav-bar" role="navigation" aria-label="Main navigation">
         <?php
         // Get current page filename (e.g., "about.php", "apply.php")

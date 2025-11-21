@@ -3,9 +3,7 @@ include_once "header.inc";
 require_once "settings.php";
 
 /*
-==========================================
  CONNECT TO MYSQL SERVER ONLY
-==========================================
 */
 $conn = @mysqli_connect($host, $user, $pwd);
 if (!$conn) {
@@ -14,9 +12,7 @@ if (!$conn) {
 }
 
 /*
-==========================================
  CHECK IF DATABASE 'job' EXISTS
-==========================================
 */
 $db_check = mysqli_query($conn, "SHOW DATABASES LIKE 'job';");
 
@@ -28,10 +24,8 @@ if (mysqli_num_rows($db_check) == 0) {
 mysqli_select_db($conn, "job");
 
 /*
-==========================================
- CHECK IF TABLE job_list EXISTS
+ CHECKS IF TABLE job_list EXISTS
  IF NOT, CREATE + INSERT SAMPLE DATA
-==========================================
 */
 $table_check = mysqli_query($conn, "SHOW TABLES LIKE 'job_list';");
 
@@ -73,9 +67,7 @@ if (mysqli_num_rows($table_check) == 0) {
 }
 
 /*
-==========================================
  GET ALL JOBS
-==========================================
 */
 $query = "SELECT * FROM job_list";
 $result = mysqli_query($conn, $query);

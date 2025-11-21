@@ -1,21 +1,18 @@
 <?php
+require_once("settings.php");
 
-require_once("settings.php");               // $host,$user,$pwd,$sql_db → $conn
-
-/* ---------- 1. CSRF protection ---------- */
-
-/* ---------- 2. Only accept POST ---------- */
+/* ---------- Only accept POST ---------- */
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     header("Location: pages/apply.php");
     exit;
 }
 
-/* ---------- 4. Helper: safe output ---------- */
+/* ---------- Helper: safe output ---------- */
 function esc($str) {
     return htmlspecialchars($str, ENT_QUOTES, 'UTF-8');
 }
 
-/* ---------- 5. Retrieve & sanitise ---------- */
+/* ---------- Retrieve & sanitise ---------- */
 $job_ref      = esc($_POST['job_ref'] ?? '');
 $first_name   = esc($_POST['first_name'] ?? '');
 $last_name    = esc($_POST['last_name'] ?? '');
@@ -30,10 +27,10 @@ $phone        = esc($_POST['phone'] ?? '');
 $skills       = $_POST['skills'] ?? [];
 $other_skills = esc($_POST['other_skills'] ?? '');
 
-/* ---------- 6. Validation ---------- */
+/* ---------- Validation ---------- */
 $errors = [];
 
-/* Job reference (must be one of the three valid codes) */
+/* Job reference */
 $job_ref = esc($_POST['job_ref'] ?? '');
 $valid_refs = [];
 
@@ -124,7 +121,7 @@ if ($skills_str === '' && $other_skills === '') {
     $errors[] = "Select or describe at least one skill.";
 }
 
-/* ---------- 7. If errors → show them ---------- */
+/* ---------- If errors → show them ---------- */
 
 /*fix this html inside echo*/
 if ($errors) {
@@ -138,7 +135,7 @@ if ($errors) {
     exit;
 }
 
-/* ---------- 8. Create table (if missing) ---------- */
+/* ---------- Create table (if missing) ---------- */
 $create = "CREATE TABLE IF NOT EXISTS eoi (
     EOInumber INT AUTO_INCREMENT PRIMARY KEY,
     job_ref VARCHAR(10) NOT NULL,
@@ -161,7 +158,7 @@ $create = "CREATE TABLE IF NOT EXISTS eoi (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;";
 $conn->query($create);
 
-/* ---------- 9. Insert with prepared statement ---------- */
+/* ---------- Insert with prepared statement ---------- */
 $insert = "INSERT INTO eoi
     (job_ref, first_name, last_name, dob, gender, street, suburb,
      state, postcode, email, phone, skills, other_skills)
@@ -172,9 +169,8 @@ if (!$stmt) {
     die("Prepare failed: " . $conn->error);
 }
 
-/* *** THIS IS THE FIXED LINE (was line ~100) *** */
 $stmt->bind_param(
-    "sssssssssssss",               // 13 placeholders → 13 values
+    "sssssssssssss",               
     $job_ref, $first_name, $last_name, $dob, $gender,
     $street, $suburb, $state, $postcode,
     $email, $phone, $skills_str, $other_skills
@@ -185,9 +181,7 @@ if ($stmt->execute()) {
     $stmt->close();
     $conn->close();
 
-    /* ---------- 10. Success page ---------- */
-
-    /*fix this html inside echo*/
+    /* ---------- Success page ---------- */
     echo "<!DOCTYPE html><html lang='en'><head><meta charset='UTF-8'>
           <title>Success</title><link rel='stylesheet' href='style/styles.css'></head><body>
           <div style='max-width:600px;margin:2rem auto;padding:2rem;background:#e8f5e9;

@@ -1,10 +1,8 @@
 <?php
-// Simple PHP handler: when form submitted, show thank you message
 $feedbackMsg = "";
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $feedback = trim($_POST["feedback"] ?? "");
     if (!empty($feedback)) {
-        // Here you could save to DB or file
         $feedbackMsg = "Thank you for your feedback!";
     } else {
         $feedbackMsg = "Please type something before sending.";
@@ -49,6 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <?php endif; ?>
       </form>
     <?php endif; ?>
+    <a href="index.php" style="margin-top:16px;display:inline-block;font-size:14px;color:#0b79f7;text-decoration:none;">Back to Home</a>
   </main>
 </body>
 </html>

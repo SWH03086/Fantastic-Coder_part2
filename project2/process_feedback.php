@@ -1,5 +1,5 @@
 <?php
-// PHP feedback message, it says thank you for your feedback!
+// Simple PHP handler: when form submitted, show thank you message
 $feedbackMsg = "";
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $feedback = trim($_POST["feedback"] ?? "");
@@ -32,19 +32,23 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 </head>
 <body>
   <main class="card" role="main">
-    <h1>Send us feedback</h1>
-    <form method="POST" action="index.php">
-      <label for="feedback">Your feedback</label>
-      <textarea id="feedback" name="feedback" placeholder="Type your message here..." required></textarea>
-      <div class="row">
-        <button type="submit">Send</button>
-      </div>
-      <?php if(!empty($feedbackMsg)): ?>
-        <div class="msg <?php echo ($feedbackMsg !== "Thank you for your feedback!" ? 'error' : ''); ?>">
-          <?php echo htmlspecialchars($feedbackMsg); ?>
+    <?php if(!empty($feedbackMsg) && $feedbackMsg === "Thank you for your feedback!"): ?>
+      <h1><?php echo $feedbackMsg; ?></h1>
+    <?php else: ?>
+      <h1>Send us feedback</h1>
+      <form method="POST" action="index.php">
+        <label for="feedback">Your feedback</label>
+        <textarea id="feedback" name="feedback" placeholder="Type your message here..." required></textarea>
+        <div class="row">
+          <button type="submit">Send</button>
         </div>
-      <?php endif; ?>
-    </form>
+        <?php if(!empty($feedbackMsg)): ?>
+          <div class="msg error">
+            <?php echo htmlspecialchars($feedbackMsg); ?>
+          </div>
+        <?php endif; ?>
+      </form>
+    <?php endif; ?>
   </main>
 </body>
 </html>

@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = trim($_POST['password']);
     $confirm_password = trim($_POST['confirm_password']);
 
-    // Check username
+    // CHECK USERNAME
     if (empty($username)) {
         $errors[] = "Username is required.";
     } else {
@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->close();
     }
 
-    // Password rules
+    // PASSWORD RULES
     $pattern = "/^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*]).{8,}$/";
 
     if (empty($password)) {

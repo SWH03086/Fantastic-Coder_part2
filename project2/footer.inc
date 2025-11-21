@@ -1,4 +1,4 @@
-<!-- footer.inc -->
+<!-- THIS IS THE FOOTER.INC -->
 <footer class="site-footer" role="contentinfo">
     <div class="footer-content">
         <p>

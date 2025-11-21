@@ -15,7 +15,6 @@ $result = $conn->query($sql);?>
     <div class="scroll-detector"></div>
     <?php include 'header.inc'; ?>
 
-    <!-- ===== MAIN CONTENT ===== -->
     <main class="form-main">
         <h1>Job Application Form</h1>
 
@@ -28,7 +27,6 @@ $result = $conn->query($sql);?>
             <form method="post" action="process_eoi.php" novalidate>
             
 
-                <!-- ===== Position Information ===== -->
                 <fieldset>
                     <legend>Position Information</legend>
                     <div class="form-group">
@@ -46,7 +44,6 @@ $result = $conn->query($sql);?>
                     </div>
                 </fieldset>
 
-                <!-- ===== Personal Information ===== -->
                 <fieldset>
                     <legend>Personal Information</legend>
 
@@ -90,7 +87,7 @@ $result = $conn->query($sql);?>
                     </fieldset>
                 </fieldset>
 
-                <!-- ===== Address Details ===== -->
+             
                 <fieldset>
                     <legend>Address Details</legend>
 
@@ -133,7 +130,7 @@ $result = $conn->query($sql);?>
                     </div>
                 </fieldset>
 
-                <!-- ===== Contact Information ===== -->
+              
                 <fieldset>
                     <legend>Contact Information</legend>
 
@@ -152,7 +149,7 @@ $result = $conn->query($sql);?>
                     </div>
                 </fieldset>
 
-                <!-- ===== Skills and Qualifications ===== -->
+           
                 <fieldset>
                     <legend>Skills and Qualifications</legend>
 
@@ -190,7 +187,7 @@ $result = $conn->query($sql);?>
                     </div>
                 </fieldset>
 
-                <!-- ===== Buttons ===== -->
+      
                 <div class="form-actions">
                     <button type="submit" class="btn-submit">Submit Application</button>
                     <button type="reset" class="btn-reset">Reset Form</button>
@@ -202,4 +199,3 @@ $result = $conn->query($sql);?>
     <?php include 'footer.inc'; ?>
 </body>
 </html>
-/* AI use in this file: None */

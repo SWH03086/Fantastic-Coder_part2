@@ -289,13 +289,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </html>
 
 <?php
-// Clean up
+
 if (isset($stmt)) $stmt->close();
 $conn->close();
 ?>
 
-<!-- AI use in this file: 
-Prompts: help me find any errors and improve this code <my og code> 
-Output: the above php code (the above code is 50% AI, I done most of it but it look messy and not working as good as i expected. I cannot find the chat I ask AI to fix this so I'm very sorry for this inconvenience)
-AI is also used in this file to find errors (mostly typo errors) and suggest solutions to fix them, but the prompts and output are too long to be shown here, and the changes are minor.
--->

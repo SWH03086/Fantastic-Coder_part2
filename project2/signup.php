@@ -85,6 +85,3 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 </body>
 
 </html>
-<!-- AI use in this file: 
-AI is also used in this file to find errors (mostly typo errors) and suggest solutions to fix them, but the prompts and output are too long to be shown here, and the changes are minor.
--->

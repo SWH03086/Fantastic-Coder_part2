@@ -1,6 +1,6 @@
 <?php
 
-require_once("settings.php");               // $host,$user,$pwd,$sql_db → $conn
+require_once("settings.php");      
 
 /* ---------- 1. CSRF protection ---------- */
 
